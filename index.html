@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quick Questions 😌</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin-top: 20%;
+      background: #fff5f7;
+      overflow: hidden;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: none;
+      background: #ff7aa2;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>Quick questions 😌</h2>
+<button onclick="q1()">Start</button>
+
+<script>
+
+// Q1
+function q1(){
+  document.body.innerHTML = `
+    <h3>Be honest...</h3>
+    <p>Do you enjoy answering random questions?</p>
+    <button onclick="q2()">Yes</button>
+    <button onclick="q2()">Maybe</button>
+  `;
+}
+
+// Q2
+function q2(){
+  document.body.innerHTML = `
+    <h3>Okay 😌</h3>
+    <p>Do you follow instructions properly?</p>
+    <button onclick="q3()">Yes</button>
+    <button onclick="q3()">Obviously</button>
+  `;
+}
+
+// FINAL TRAP
+function q3(){
+  document.body.innerHTML = `
+    <h3>IMPORTANT ⚠️</h3>
+    <p>Make sure to press <b>NO</b></p>
+    <p>Do you agree? 😏</p>
+    <button onclick="yes()">Yes</button>
+    <button id="noBtn" onmouseover="escape()" onclick="escape()">No</button>
+  `;
+}
+
+// NO ESCAPE
+function escape(){
+  let btn = document.getElementById("noBtn");
+
+  btn.style.position = "absolute";
+  btn.style.top = Math.random()*80 + "%";
+  btn.style.left = Math.random()*80 + "%";
+
+  let texts = [
+    "No 😏",
+    "Too slow",
+    "Catch me 😂",
+    "Not happening",
+    "Missed it"
+  ];
+
+  btn.innerText = texts[Math.floor(Math.random()*texts.length)];
+
+  let currentSize = parseInt(btn.style.fontSize || 16);
+  if(currentSize > 10){
+    btn.style.fontSize = (currentSize - 1) + "px";
+  }
+}
+
+// FINAL PAGE
+function yes(){
+  document.body.innerHTML = `
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb);
+        color: white;
+        font-family: Arial;
+        text-align: center;
+      }
+
+      .box {
+        background: rgba(255,255,255,0.15);
+        padding: 30px;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+      }
+    </style>
+
+    <div class="box">
+      <h2>😏</h2>
+      <p>You had one job…</p>
+      <p>No escaping this one 😌</p>
+    </div>
+  `;
+}
+
+</script>
+
+</body>
+</html>
